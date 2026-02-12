@@ -1,0 +1,7 @@
+Testing text.
+
+#this was created with 
+#fs.appendFile(path.join(__dirname,'files', 'test.txt', 'Testing text'), (err)=>{
+#   if (err) throw err
+#   console.log('Appending file complete')
+#})
