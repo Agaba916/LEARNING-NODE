@@ -16,7 +16,7 @@ mongoose.connect(uri)
 .catch((error) => console.log("Database connection error: ", error));
 
 
-//ROUTES
+//ROUTES...
 
 //simplest test route
 app.get("/", (req,res)=>{
