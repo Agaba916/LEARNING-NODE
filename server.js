@@ -1,3 +1,4 @@
+
 require("dotenv").config();
 const express = require('express');
 const mongoose = require('mongoose');
@@ -10,10 +11,7 @@ app.use(express.json());//middleware to parse incoming json data otherwise req.b
 const uri = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASS}` +
             `@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?authSource=admin`;
 
-mongoose.connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+mongoose.connect(uri)
 .then(() => console.log("Database connected successfully"))
 .catch((error) => console.log("Database connection error: ", error));
 
@@ -51,3 +49,5 @@ app.get("/users", async (req,res)=>{
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
