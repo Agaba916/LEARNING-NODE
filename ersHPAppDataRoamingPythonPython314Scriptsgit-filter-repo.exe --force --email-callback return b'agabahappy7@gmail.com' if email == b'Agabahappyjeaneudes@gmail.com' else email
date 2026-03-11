@@ -1,0 +1,160 @@
+[33mcommit b869a0a16d6fef2f46590e3022c060eede20a4cd[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author:     Agaba916 <agabahappy7@gmail.com>
+AuthorDate: Thu Feb 26 10:26:50 2026 +0200
+Commit:     Agaba916 <agabahappy7@gmail.com>
+CommitDate: Thu Feb 26 10:26:50 2026 +0200
+
+    feat: minor update to server.js
+
+[33mcommit 00d36acaa5dc8cc830ffae2efb8b0219e35108d1[m
+Author:     Agaba916 <agabahappy7@gmail.com>
+AuthorDate: Thu Feb 26 10:22:15 2026 +0200
+Commit:     Agaba916 <agabahappy7@gmail.com>
+CommitDate: Thu Feb 26 10:22:15 2026 +0200
+
+    Initial commit: project setup with server and User model
+
+[33mcommit e572233cbcaddb22a16354776a29cf3ec631f8fa[m
+Author:     Agaba <agabahappy7@gmail.com>
+AuthorDate: Thu Feb 26 10:07:06 2026 +0200
+Commit:     Agaba <agabahappy7@gmail.com>
+CommitDate: Thu Feb 26 10:07:06 2026 +0200
+
+    docs: add API documentation
+
+[33mcommit 23ca2b035086bf0de497b8baaa21b384eb9a8841[m
+Author:     Agaba <agabahappy7@gmail.com>
+AuthorDate: Thu Feb 26 10:07:06 2026 +0200
+Commit:     Agaba <agabahappy7@gmail.com>
+CommitDate: Thu Feb 26 10:07:06 2026 +0200
+
+    config: add environment variables
+
+[33mcommit 015d609db0ee4a74a5cd204e415e25c864d8ce7c[m
+Merge: d4c2f69 f8d1102
+Author:     Agaba <agabahappy7@gmail.com>
+AuthorDate: Thu Feb 26 10:07:05 2026 +0200
+Commit:     Agaba <agabahappy7@gmail.com>
+CommitDate: Thu Feb 26 10:07:05 2026 +0200
+
+    feat: setup MongoDB connection with authentication
+
+[33mcommit d4c2f69c0086458c1e0694d274da599afdc060de[m
+Author:     Agaba <Agabahappyjeaneudes@gmail.com>
+AuthorDate: Thu Feb 26 09:47:37 2026 +0200
+Commit:     Agaba <Agabahappyjeaneudes@gmail.com>
+CommitDate: Thu Feb 26 09:47:37 2026 +0200
+
+    Initial commit: project setup with server and User model
+
+[33mcommit c7a66bc931dceb29a0d3ee11416e66cdd0b7fa34[m
+Author:     Agaba <Agabahappyjeaneudes@gmail.com>
+AuthorDate: Thu Feb 26 09:31:47 2026 +0200
+Commit:     Agaba <Agabahappyjeaneudes@gmail.com>
+CommitDate: Thu Feb 26 09:31:47 2026 +0200
+
+    Initial commit: project setup with server and User model
+
+[33mcommit f8d11026853055d27142e97f2c6764566519efb0[m
+Author:     Agaba <Agabahappyjeaneudes@gmail.com>
+AuthorDate: Thu Feb 12 13:11:55 2026 +0200
+Commit:     Agaba <Agabahappyjeaneudes@gmail.com>
+CommitDate: Thu Feb 12 13:11:55 2026 +0200
+
+    Add dir.js and remove promisesWrite.txt
+
+[33mcommit e2a5975411edafcc2bad4943bd3693565df3b807[m
+Author:     Agaba <Agabahappyjeaneudes@gmail.com>
+AuthorDate: Thu Feb 12 07:45:43 2026 +0200
+Commit:     Agaba <Agabahappyjeaneudes@gmail.com>
+CommitDate: Thu Feb 12 07:45:43 2026 +0200
+
+    Add new files
+
+[33mcommit b972eb9c1968251aa8eeb26d302d158bc73a636e[m
+Author:     Agaba <Agabahappyjeaneudes@gmail.com>
+AuthorDate: Thu Feb 12 07:21:30 2026 +0200
+Commit:     Agaba <Agabahappyjeaneudes@gmail.com>
+CommitDate: Thu Feb 12 07:21:30 2026 +0200
+
+    Add promises.js
+[33mcommit b869a0a16d6fef2f46590e3022c060eede20a4cd[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author:     Agaba916 <agabahappy7@gmail.com>
+AuthorDate: Thu Feb 26 10:26:50 2026 +0200
+Commit:     Agaba916 <agabahappy7@gmail.com>
+CommitDate: Thu Feb 26 10:26:50 2026 +0200
+
+    feat: minor update to server.js
+
+[33mcommit 00d36acaa5dc8cc830ffae2efb8b0219e35108d1[m
+Author:     Agaba916 <agabahappy7@gmail.com>
+AuthorDate: Thu Feb 26 10:22:15 2026 +0200
+Commit:     Agaba916 <agabahappy7@gmail.com>
+CommitDate: Thu Feb 26 10:22:15 2026 +0200
+
+    Initial commit: project setup with server and User model
+
+[33mcommit e572233cbcaddb22a16354776a29cf3ec631f8fa[m
+Author:     Agaba <agabahappy7@gmail.com>
+AuthorDate: Thu Feb 26 10:07:06 2026 +0200
+Commit:     Agaba <agabahappy7@gmail.com>
+CommitDate: Thu Feb 26 10:07:06 2026 +0200
+
+    docs: add API documentation
+
+[33mcommit 23ca2b035086bf0de497b8baaa21b384eb9a8841[m
+Author:     Agaba <agabahappy7@gmail.com>
+AuthorDate: Thu Feb 26 10:07:06 2026 +0200
+Commit:     Agaba <agabahappy7@gmail.com>
+CommitDate: Thu Feb 26 10:07:06 2026 +0200
+
+    config: add environment variables
+
+[33mcommit 015d609db0ee4a74a5cd204e415e25c864d8ce7c[m
+Merge: d4c2f69 f8d1102
+Author:     Agaba <agabahappy7@gmail.com>
+AuthorDate: Thu Feb 26 10:07:05 2026 +0200
+Commit:     Agaba <agabahappy7@gmail.com>
+CommitDate: Thu Feb 26 10:07:05 2026 +0200
+
+    feat: setup MongoDB connection with authentication
+
+[33mcommit d4c2f69c0086458c1e0694d274da599afdc060de[m
+Author:     Agaba <Agabahappyjeaneudes@gmail.com>
+AuthorDate: Thu Feb 26 09:47:37 2026 +0200
+Commit:     Agaba <Agabahappyjeaneudes@gmail.com>
+CommitDate: Thu Feb 26 09:47:37 2026 +0200
+
+    Initial commit: project setup with server and User model
+
+[33mcommit c7a66bc931dceb29a0d3ee11416e66cdd0b7fa34[m
+Author:     Agaba <Agabahappyjeaneudes@gmail.com>
+AuthorDate: Thu Feb 26 09:31:47 2026 +0200
+Commit:     Agaba <Agabahappyjeaneudes@gmail.com>
+CommitDate: Thu Feb 26 09:31:47 2026 +0200
+
+    Initial commit: project setup with server and User model
+
+[33mcommit f8d11026853055d27142e97f2c6764566519efb0[m
+Author:     Agaba <Agabahappyjeaneudes@gmail.com>
+AuthorDate: Thu Feb 12 13:11:55 2026 +0200
+Commit:     Agaba <Agabahappyjeaneudes@gmail.com>
+CommitDate: Thu Feb 12 13:11:55 2026 +0200
+
+    Add dir.js and remove promisesWrite.txt
+
+[33mcommit e2a5975411edafcc2bad4943bd3693565df3b807[m
+Author:     Agaba <Agabahappyjeaneudes@gmail.com>
+AuthorDate: Thu Feb 12 07:45:43 2026 +0200
+Commit:     Agaba <Agabahappyjeaneudes@gmail.com>
+CommitDate: Thu Feb 12 07:45:43 2026 +0200
+
+    Add new files
+
+[33mcommit b972eb9c1968251aa8eeb26d302d158bc73a636e[m
+Author:     Agaba <Agabahappyjeaneudes@gmail.com>
+AuthorDate: Thu Feb 12 07:21:30 2026 +0200
+Commit:     Agaba <Agabahappyjeaneudes@gmail.com>
+CommitDate: Thu Feb 12 07:21:30 2026 +0200
+
+    Add promises.js

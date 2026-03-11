@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riverside Academy</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 20px 50px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2563eb;
+            cursor: pointer;
+        }
+
+        .logo span { color: #059669; }
+
+        nav ul {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        nav button:hover { color: #2563eb; }
+
+        nav button.active { color: #2563eb; border-bottom: 2px solid #2563eb; }
+
+        
+        /* Page Container */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+            color: white;
+            padding: 80px 50px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: #0284c7;
+            color: white;
+            padding: 12px 40px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .hero-btn:hover { background: #0369a1; }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 50px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #1e40af;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-date {
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            color: #1e40af;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .card-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .card-link:hover { color: #1e40af; }
+
+        /* Info Boxes */
+        .info-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .info-box {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+
+        .info-box:hover { transform: translateY(-3px); }
+
+        .info-box-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .info-box h3 {
+            color: #1e40af;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .info-box p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Explore Button */
+        .explore-btn {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .explore-btn button {
+            background: #0284c7;
+            color: white;
+            padding: 12px 50px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            display: inline-block;
+            transition: background 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .explore-btn button:hover { background: #0369a1; }
+
+        /* About Section */
+        .about-content {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            line-height: 1.8;
+        }
+
+        .about-content h2 {
+            color: #1e40af;
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+
+        .about-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        /* Form Section */
+        .form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #1e40af;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 5px rgba(37, 99, 235, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-submit {
+            background: #2563eb;
+            color: white;
+            padding: 12px 40px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 1rem;
+        }
+
+        .form-submit:hover { background: #1e40af; }
+
+        /* Directory Section */
+        .directory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .directory-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #2563eb;
+        }
+
+        .directory-card h3 {
+            color: #1e40af;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .directory-card p {
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e3a5f;
+            color: white;
+            padding: 50px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section button {
+            background: none;
+            border: none;
+            color: #0284c7;
+            text-decoration: none;
+            transition: color 0.3s;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .footer-section button:hover { color: white; }
+
+        .footer-contact {
+            margin-top: 20px;
+            font-size: 0.95rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            width: 35px;
+            height: 35px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .social-icons a:hover { background: rgba(255, 255, 255, 0.4); }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 30px;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content { flex-direction: column; gap: 15px; }
+            nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .hero { padding: 50px 20px; }
+            .hero h1 { font-size: 2rem; }
+            main { padding: 40px 20px; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo" onclick="showPage('home')">River<span>Side</span></div>
+            <nav>
+                <ul>
+                    <li><button onclick="showPage('home')" id="nav-home">HOME</button></li>
+                    <li><button onclick="showPage('about')" id="nav-about">ABOUT</button></li>
+                    <li><button onclick="showPage('updates')" id="nav-updates">UPDATES</button></li>
+                    <li><button onclick="showPage('services')" id="nav-services">SERVICES</button></li>
+                    <li><button onclick="showPage('schools')" id="nav-schools">SCHOOLS DIRECTORY</button></li>
+                </ul>
+            </nav>
+           
+        </div>
+    </header>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <h1>Welcome to Riverside Academy</h1>
+            <p>Empowering students with quality education and personal development</p>
+            <button class="hero-btn" onclick="showPage('contact')">Apply Now</button>
+        </section>
+
+        <main>
+            <h2 class="section-title">Latest Updates</h2>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-image">📚</div>
+                    <div class="card-content">
+                        <p class="card-date">Thursday, 28 February 2025</p>
+                        <h3 class="card-title">NEW CURRICULUM LAUNCH</h3>
+                        <p class="card-desc">We are excited to announce the launch of our new comprehensive curriculum designed to enhance student learning outcomes.</p>
+                        <span class="card-link" onclick="showPage('updates')">Read more →</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">🏆</div>
+                    <div class="card-content">
+                        <p class="card-date">Wednesday, 27 February 2025</p>
+                        <h3 class="card-title">STUDENT ACHIEVEMENTS</h3>
+                        <p class="card-desc">Our students achieved outstanding results in the national examinations. Congratulations to all participants!</p>
+                        <span class="card-link" onclick="showPage('updates')">Read more →</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">🌍</div>
+                    <div class="card-content">
+                        <p class="card-date">Tuesday, 26 February 2025</p>
+                        <h3 class="card-title">GLOBAL PARTNERSHIP</h3>
+                        <p class="card-desc">Riverside Academy partners with international institutions to provide students with global learning opportunities.</p>
+                        <span class="card-link" onclick="showPage('updates')">Read more →</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="explore-btn">
+                <button onclick="showPage('updates')">Explore More</button>
+            </div>
+
+            <h2 class="section-title">Our Services</h2>
+
+            <div class="info-boxes">
+                <div class="info-box">
+                    <div class="info-box-icon">🎓</div>
+                    <h3>Quality Education</h3>
+                    <p>World-class curriculum and experienced educators dedicated to student success</p>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-box-icon">🏅</div>
+                    <h3>Extracurricular</h3>
+                    <p>Diverse clubs, sports, and activities to develop well-rounded students</p>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-box-icon">💻</div>
+                    <h3>Technology</h3>
+                    <p>Modern tech facilities and digital learning tools for all students</p>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-box-icon">👥</div>
+                    <h3>Community</h3>
+                    <p>Supportive community fostering collaboration and personal growth</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page">
+        <main>
+            <h2 class="section-title">About Riverside Academy</h2>
+            <div class="about-content">
+                <h2>Our Mission</h2>
+                <p>Riverside Academy is dedicated to providing exceptional educational experiences that empower students to become leaders, innovators, and compassionate global citizens. We believe in nurturing the whole child through academic excellence, character development, and personal growth.</p>
+
+                <h2>Our Vision</h2>
+                <p>To be a premier educational institution recognized for transforming lives through quality education, fostering critical thinking, creativity, and a commitment to lifelong learning.</p>
+
+                <h2>Our Values</h2>
+                <p><strong>Excellence:</strong> We strive for the highest standards in all we do. <strong>Integrity:</strong> We uphold honesty and ethical principles in all our interactions. <strong>Inclusivity:</strong> We celebrate diversity and ensure every student feels valued and supported. <strong>Innovation:</strong> We embrace new ideas and approaches to enhance learning outcomes. <strong>Community:</strong> We foster a supportive environment where collaboration thrives.</p>
+
+                <h2>History</h2>
+                <p>Founded in 2010, Riverside Academy has grown from a small institution to a leading educational center serving hundreds of students. Our commitment to excellence and innovation has made us a trusted choice for families seeking quality education.</p>
+
+                <h2>Our Team</h2>
+                <p>Our dedicated team of educators, administrators, and support staff are passionate about student success. With years of experience and continuous professional development, they bring expertise, creativity, and care to their work every day.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- UPDATES PAGE -->
+    <div id="updates" class="page">
+        <main>
+            <h2 class="section-title">Latest Updates & News</h2>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-image">📚</div>
+                    <div class="card-content">
+                        <p class="card-date">Thursday, 28 February 2025</p>
+                        <h3 class="card-title">NEW CURRICULUM LAUNCH</h3>
+                        <p class="card-desc">We are excited to announce the launch of our new comprehensive curriculum designed to enhance student learning outcomes. This curriculum integrates modern pedagogical approaches with traditional academic rigor.</p>
+                        <span class="card-link">Read full article →</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">🏆</div>
+                    <div class="card-content">
+                        <p class="card-date">Wednesday, 27 February 2025</p>
+                        <h3 class="card-title">STUDENT ACHIEVEMENTS</h3>
+                        <p class="card-desc">Our students achieved outstanding results in the national examinations. We are proud of their hard work and dedication. Congratulations to all participants and thank you to our teaching staff!</p>
+                        <span class="card-link">Read full article →</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">🌍</div>
+                    <div class="card-content">
+                        <p class="card-date">Tuesday, 26 February 2025</p>
+                        <h3 class="card-title">GLOBAL PARTNERSHIP</h3>
+                        <p class="card-desc">Riverside Academy partners with international institutions to provide students with global learning opportunities. This partnership opens doors for exchange programs and collaborative learning initiatives.</p>
+                        <span class="card-link">Read full article →</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">🎉</div>
+                    <div class="card-content">
+                        <p class="card-date">Monday, 25 February 2025</p>
+                        <h3 class="card-title">ANNUAL SPORTS DAY</h3>
+                        <p class="card-desc">Join us for our annual sports day where students showcase their athletic talents. Experience exciting competitions, performances, and community engagement.</p>
+                        <span class="card-link">Read full article →</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">🔬</div>
+                    <div class="card-content">
+                        <p class="card-date">Sunday, 24 February 2025</p>
+                        <h3 class="card-title">SCIENCE FAIR 2025</h3>
+                        <p class="card-desc">Our annual science fair showcases innovative student projects in various STEM disciplines. Witness cutting-edge research and creative solutions to real-world problems.</p>
+                        <span class="card-link">Read full article →</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">🎨</div>
+                    <div class="card-content">
+                        <p class="card-date">Saturday, 23 February 2025</p>
+                        <h3 class="card-title">ART EXHIBITION</h3>
+                        <p class="card-desc">Celebrate student creativity at our annual art exhibition featuring paintings, sculptures, digital art, and more. Support our talented young artists!</p>
+                        <span class="card-link">Read full article →</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- SERVICES PAGE -->
+    <div id="services" class="page">
+        <main>
+            <h2 class="section-title">Our Services</h2>
+
+            <div class="info-boxes">
+                <div class="info-box">
+                    <div class="info-box-icon">🎓</div>
+                    <h3>Quality Education</h3>
+                    <p>World-class curriculum and experienced educators dedicated to student success. We offer comprehensive academic programs designed to develop critical thinking and problem-solving skills.</p>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-box-icon">🏅</div>
+                    <h3>Extracurricular Activities</h3>
+                    <p>Diverse clubs, sports, and activities to develop well-rounded students. From debate teams to sports clubs, we offer opportunities for every interest.</p>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-box-icon">💻</div>
+                    <h3>Technology Integration</h3>
+                    <p>Modern tech facilities and digital learning tools for all students. Our state-of-the-art labs and online platforms support interactive and engaging learning.</p>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-box-icon">👥</div>
+                    <h3>Community Support</h3>
+                    <p>Supportive community fostering collaboration and personal growth. We believe in building strong relationships among students, parents, and educators.</p>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-box-icon">🌟</div>
+                    <h3>Counseling Services</h3>
+                    <p>Professional counselors available to support student mental health and well-being. We provide guidance on academic, personal, and career matters.</p>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-box-icon">📖</div>
+                    <h3>Library Resources</h3>
+                    <p>Extensive library collection with books, journals, and digital resources. Our librarians help students conduct research and develop information literacy skills.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- SCHOOLS DIRECTORY PAGE -->
+    <div id="schools" class="page">
+        <main>
+            <h2 class="section-title">Schools Directory</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 40px;">Explore our various schools and departments</p>
+
+            <div class="directory-grid">
+                <div class="directory-card">
+                    <h3>Primary School</h3>
+                    <p><strong>Grade Levels:</strong> Nursery to Grade 6</p>
+                    <p><strong>Focus:</strong> Foundational academics, character development, and play-based learning</p>
+                    <p><strong>Principal:</strong> Dr. Jane Smith</p>
+                    <p><strong>Email:</strong> primary@riversideacademy.edu</p>
+                </div>
+
+                <div class="directory-card">
+                    <h3>Secondary School</h3>
+                    <p><strong>Grade Levels:</strong> Grade 7 to Grade 10</p>
+                    <p><strong>Focus:</strong> Subject specialization and independent learning skills</p>
+                    <p><strong>Principal:</strong> Mr. Robert Johnson</p>
+                    <p><strong>Email:</strong> secondary@riversideacademy.edu</p>
+                </div>
+
+                <div class="directory-card">
+                    <h3>Upper School</h3>
+                    <p><strong>Grade Levels:</strong> Grade 11 to Grade 12</p>
+                    <p><strong>Focus:</strong> Advanced academics and university preparation</p>
+                    <p><strong>Principal:</strong> Prof. Sarah Williams</p>
+                    <p><strong>Email:</strong> upperchool@riversideacademy.edu</p>
+                </div>
+
+                <div class="directory-card">
+                    <h3>Department of Science</h3>
+                    <p><strong>Head:</strong> Dr. Michael Chen</p>
+                    <p><strong>Programs:</strong> Biology, Chemistry, Physics, Environmental Science</p>
+                    <p><strong>Facilities:</strong> Modern laboratories with advanced equipment</p>
+                    <p><strong>Email:</strong> science@riversideacademy.edu</p>
+                </div>
+
+                <div class="directory-card">
+                    <h3>Department of Languages</h3>
+                    <p><strong>Head:</strong> Ms. Amanda Garcia</p>
+                    <p><strong>Programs:</strong> English, French, Kinyarwanda, Swahili</p>
+                    <p><strong>Focus:</strong> Communication and cultural understanding</p>
+                    <p><strong>Email:</strong> languages@riversideacademy.edu</p>
+                </div>
+
+                <div class="directory-card">
+                    <h3>Department of Arts & Humanities</h3>
+                    <p><strong>Head:</strong> Mr. David Thompson</p>
+                    <p><strong>Programs:</strong> History, Geography, Literature, Philosophy</p>
+                    <p><strong>Focus:</strong> Critical thinking and cultural awareness</p>
+                    <p><strong>Email:</strong> arts@riversideacademy.edu</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- CONTACT/APPLICATION PAGE -->
+    <div id="contact" class="page">
+        <main>
+            <h2 class="section-title">Apply to Riverside Academy</h2>
+            
+            <div class="form-container">
+                <form onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="grade">Desired Grade Level *</label>
+                        <select id="grade" name="grade" required>
+                            <option value="">Select a grade level</option>
+                            <option value="Primary">Primary School (Nursery to Grade 6)</option>
+                            <option value="Secondary">Secondary School (Grade 7 to 10)</option>
+                            <option value="Upper">Upper School (Grade 11 to 12)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message/Additional Information</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+
+                    <button type="submit" class="form-submit">Submit Application</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="footer-contact">
+                    <p>📞 Hotline: 2028</p>
+                    <p>📧 info@riversideacademy.edu</p>
+                    <p>📍 Riverside Academy Campus</p>
+                </div>
+                <div class="social-icons">
+                    <a href="#">f</a>
+                    <a href="#">𝕏</a>
+                    <a href="#">📱</a>
+                    <a href="#">▶</a>
+                    <a href="#">📷</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><button onclick="alert('Privacy Policy - Coming Soon')">Privacy Policy</button></li>
+                    <li><button onclick="alert('Terms of Service - Coming Soon')">Terms of Service</button></li>
+                    <li><button onclick="showPage('contact')">Admissions</button></li>
+                    <li><button onclick="showPage('services')">Academic Programs</button></li>
+                    <li><button onclick="alert('Student Portal - Coming Soon')">Student Portal</button></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Riverside Academy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // Show selected page
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.classList.add('active');
+            }
+
+            // Update navigation highlight
+            const navButtons = document.querySelectorAll('nav button');
+            navButtons.forEach(btn => btn.classList.remove('active'));
+            
+            const navMap = {
+                'home': 'nav-home',
+                'about': 'nav-about',
+                'updates': 'nav-updates',
+                'services': 'nav-services',
+                'schools': 'nav-schools'
+            };
+
+            if (navMap[pageId]) {
+                document.getElementById(navMap[pageId]).classList.add('active');
+            }
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            alert(`Thank you for your application, ${data.name}! We will contact you soon.`);
+            event.target.reset();
+            showPage('home');
+        }
+
+        // Initialize with home page
+        showPage('home');
+    </script>
+</body>
+</html>
