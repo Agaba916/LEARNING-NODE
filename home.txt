@@ -1,0 +1,6 @@
+Hello this is the homepage!
+
+Learning routes with nodejs.
+
+Practice makes perfect bro.
+

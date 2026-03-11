@@ -1,0 +1,5 @@
+[33me572233[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m docs: add API documentation
+[33m23ca2b0[m config: add environment variables
+[33m015d609[m feat: setup MongoDB connection with authentication
+[33md4c2f69[m Initial commit: project setup with server and User model
+[33mc7a66bc[m Initial commit: project setup with server and User model
